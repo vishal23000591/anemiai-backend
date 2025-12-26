@@ -543,8 +543,6 @@ def send_whatsapp_report():
         print("WHATSAPP ERROR:", str(e))
         return jsonify({"error": str(e)}), 400
 
-
-
-# -------------------- RUN SERVER --------------------
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5005)
+    port = int(os.environ.get("PORT", 5005))  # Render assigns PORT
+    app.run(debug=False, host="0.0.0.0", port=port)
